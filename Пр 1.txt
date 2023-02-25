@@ -1,0 +1,15 @@
+@startuml
+
+skinparam monochrome true
+actor Customer
+actor Bank
+rectangle ATM {
+  Customer --> (Withdraw Cash)
+  Customer --> (Check Balance)
+  Customer --> (Get Credit)
+  (Withdraw Cash) .> (Check Balance) : include
+  (Get Credit) .> (Check Balance) : extend
+  Bank -- (Check Availability)
+}
+
+@enduml
